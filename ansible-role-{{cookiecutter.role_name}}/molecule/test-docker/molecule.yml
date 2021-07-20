@@ -5,15 +5,15 @@ dependency:
     role-file: requirements.yml
 driver:
   name: 'docker'
-# lint:
-#   set -e
-#   yamllint .
-#   ansible-lint .
-#   ansible-lint .
 lint:
-  name: {{ cookiecutter.lint_name }}
-  options:
-    config-file: .yamllint
+  set -e
+  yamllint .
+  ansible-lint .
+  ansible-lint .
+# lint:
+#   name: {{ cookiecutter.lint_name }}
+#   options:
+#     config-file: .yamllint
 platforms:
   - name: 'test-docker-oraclelinux7-{{ cookiecutter.role_name }}-${MOLECULE_USER:-$USER}'
     image: 'oraclelinux:7'
@@ -30,11 +30,11 @@ platforms:
 provisioner:
   name: ansible
   log: true
-  lint:
-    name: {{ cookiecutter.provisioner_lint_name }}
-  config_options:
-    defaults:
-      callback_whitelist: profile_tasks,timer
+  # lint:
+  #   name: {{ cookiecutter.provisioner_lint_name }}
+  # config_options:
+  #   defaults:
+  #     callback_whitelist: profile_tasks,timer
   playbooks:
     verify: ../resources/tests/verify.yml
 scenario:
