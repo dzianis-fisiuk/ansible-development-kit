@@ -17,12 +17,8 @@ platforms:
     privileged: '{{ cookiecutter.docker_privileged }}'
     groups:
       - '{{ cookiecutter.role_name }}'
-    # volumes: 
-    #   - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     command: '/usr/sbin/init'
     tty: true
-    # environment:
-    #   container: 'docker'
 provisioner:
   name: ansible
   log: true
