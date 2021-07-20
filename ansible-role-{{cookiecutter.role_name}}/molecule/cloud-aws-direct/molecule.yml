@@ -5,10 +5,6 @@ dependency:
     role-file: requirements.yml
 driver:
   name: ec2
-# lint:
-#   name: {{ cookiecutter.lint_name }}
-#   options:
-#     config-file: .yamllint
 lint:
   set -e
   {{ cookiecutter.lint_name }} .
