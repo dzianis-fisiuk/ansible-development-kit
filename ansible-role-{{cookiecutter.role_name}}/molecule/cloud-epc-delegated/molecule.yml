@@ -7,8 +7,8 @@ driver:
   name: delegated
 lint:
   set -e
-  {{ cookiecutter.lint_name }} .
-  {{ cookiecutter.provisioner_lint_name }} 
+  {{ cookiecutter.lint_name }}
+  {{ cookiecutter.provisioner_lint_name }}
   {{ cookiecutter.verifier_lint_name }}
 platforms:
   - name: test-epc-centos7-{{ cookiecutter.role_name }}
