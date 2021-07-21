@@ -5,9 +5,9 @@ dependency:
     role-file: requirements.yml
 driver:
   name: azure
-lint:
+lint: |
   set -e
-  {{ cookiecutter.lint_name }}
+  {{ cookiecutter.lint_name }} .
   {{ cookiecutter.provisioner_lint_name }}
   {{ cookiecutter.verifier_lint_name }}
 platforms:
