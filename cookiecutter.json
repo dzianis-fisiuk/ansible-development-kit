@@ -12,6 +12,8 @@
     "min_ansible_version": "2.8",
     "company_name": "Corelogic",
     "role_description": "Yet Another Ansible Role From Lean Delivery",
+    "copyright_year": "2022",
+    "copyright_owner": "Corelogic",
     "issue_tracker_url": "",
     "galaxy_tags": "[development, system]",
     "platforms":"[{name: [EL], versions: [7]}]",
