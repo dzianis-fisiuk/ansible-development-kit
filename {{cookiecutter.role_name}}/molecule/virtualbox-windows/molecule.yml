@@ -1,0 +1,53 @@
+---
+dependency:
+  name: {{ cookiecutter.dependency_name }}
+  options:
+    role-file: requirements.yml
+driver:
+  name: delegated
+lint: |
+  set -e
+  {{ cookiecutter.lint_name }} .
+  {{ cookiecutter.provisioner_lint_name }}
+  {{ cookiecutter.verifier_lint_name }}
+platforms:
+  - name: instance
+    box: vperu/windows-server-2016-standard-x64-eval
+    memory: 4096
+    cpus: 2
+    interfaces:
+      # `network_name` is the required identifier, other keys map to arguments.
+      - network_name: private_network
+        guest: 5985
+        host: 5986
+    # List of raw Vagrant `config` options.
+    provider_raw_config_args:
+      - "customize [ 'modifyvm', :id, '--natdnshostresolver1', 'on' ]"
+    # Dictionary of `config` options.
+    config_options:
+      ssh.keep_alive: yes
+      ssh.remote_user: "'vagrant'"
+provisioner:
+  name: ansible
+  log: true
+  playbooks:
+    create: ../resources/provisioning/virtualbox/create.yml
+    prepare: ../resources/provisioning/virtualbox/prepare.yml
+    destroy: ../resources/provisioning/virtualbox/destroy.yml
+    verify: ../resources/tests/verify.yml
+  config_options:
+    ssh_connection:
+      control_path: "/var/ans/%%h"
+  lint:
+    name: {{ cookiecutter.provisioner_lint_name }}
+  env:
+    ANSIBLE_LIBRARY: ${ANSIBLE_LIBRARY}
+scenario:
+  name: virtualbox-windows
+verifier:
+  name: {{ cookiecutter.verifier_name }}
+  options:
+    verbose: true
+  directory: ../resources/tests/
+  lint:
+    name: {{ cookiecutter.verifier_lint_name }}
