@@ -11,7 +11,7 @@ lint: |
   {{ cookiecutter.provisioner_lint_name }}
   {{ cookiecutter.verifier_lint_name }}
 platforms:
-  - name: 'test-docker-oraclelinux7-{{ cookiecutter.role_name }}-${MOLECULE_USER:-$USER}'
+  - name: 'test1-docker-oraclelinux7-{{ cookiecutter.role_name }}-${MOLECULE_USER:-$USER}'
     image: 'oraclelinux:7'
     pre_build_image: true
     privileged: '{{ cookiecutter.docker_privileged }}'
