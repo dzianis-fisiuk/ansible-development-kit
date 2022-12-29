@@ -3,6 +3,9 @@
 
 - name: Verify
   hosts: all
+  # molecule converge is failed on Gathering Facts
+  # https://github.com/ansible-community/molecule-docker/issues/197
+  gather_facts: false
   tasks:
   - name: Example assertion
     assert:
