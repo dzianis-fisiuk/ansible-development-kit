@@ -4,20 +4,20 @@ dependency:
   options:
     role-file: requirements.yml
 driver:
-  name: 'docker'
+  name: docker
 lint: |
   set -e
   {{ cookiecutter.lint_name }} .
   {{ cookiecutter.provisioner_lint_name }}
   {{ cookiecutter.verifier_lint_name }}
 platforms:
-  - name: 'test-docker-oraclelinux7-{{ cookiecutter.role_name }}-${MOLECULE_USER:-$USER}'
-    image: 'oraclelinux:7'
+  - name: test-docker-oraclelinux7-{{ cookiecutter.role_name }}-${MOLECULE_USER:-$USER}
+    image: oraclelinux:7
     pre_build_image: true
-    privileged: '{{ cookiecutter.docker_privileged }}'
+    privileged: {{ cookiecutter.docker_privileged }}
     groups:
-      - '{{ cookiecutter.role_name }}'
-    command: '/usr/sbin/init'
+      - {{ cookiecutter.role_name }}
+    command: /usr/sbin/init
     tty: true
 provisioner:
   name: ansible
@@ -25,6 +25,6 @@ provisioner:
   playbooks:
     verify: ../resources/tests/verify.yml
 scenario:
-  name: 'test-docker'
+  name: test-docker
 verifier:
   name: {{ cookiecutter.verifier_name }}
