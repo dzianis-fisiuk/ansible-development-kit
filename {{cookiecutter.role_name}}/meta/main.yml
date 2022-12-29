@@ -1,12 +1,12 @@
 ---
 galaxy_info:
-  role_name: {{ cookiecutter.role_name | replace('-', '_') }}
-  author: {{ cookiecutter.author_name }}
-  description: {{ cookiecutter.role_description }}
-  company: {{ cookiecutter.company_name }}
-  issue_tracker_url: {{ cookiecutter.issue_tracker_url }}
-  license: {{ cookiecutter.license }}
-  min_ansible_version: {{ cookiecutter.min_ansible_version }}
+  role_name: '{{ cookiecutter.role_name | replace("-", "_") }}'
+  author: '{{ cookiecutter.author_name }}'
+  description: '{{ cookiecutter.role_description }}'
+  company: '{{ cookiecutter.company_name }}'
+  issue_tracker_url: '{{ cookiecutter.issue_tracker_url }}'
+  license: '{{ cookiecutter.license }}'
+  min_ansible_version: '{{ cookiecutter.min_ansible_version }}'
   platforms: {{ cookiecutter.platforms }}
   galaxy_tags: {{ cookiecutter.galaxy_tags }}
 dependencies: []
