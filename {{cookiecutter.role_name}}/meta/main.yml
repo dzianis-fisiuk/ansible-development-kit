@@ -6,7 +6,7 @@ galaxy_info:
   company: {{ cookiecutter.company_name }}
   issue_tracker_url: {{ cookiecutter.issue_tracker_url }}
   license: {{ cookiecutter.license }}
-  min_ansible_version: {{ cookiecutter.min_ansible_version }}
+  min_ansible_version: '{{ cookiecutter.min_ansible_version }}'
   platforms: {{ cookiecutter.platforms }}
   galaxy_tags: {{ cookiecutter.galaxy_tags }}
 dependencies: []

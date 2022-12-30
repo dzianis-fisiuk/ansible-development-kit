@@ -9,14 +9,15 @@
     "provisioner_lint_name": "ansible-lint",
     "verifier_name": "ansible",
     "verifier_lint_name": "ansible-lint",
-    "min_ansible_version": "2.8",
+    "min_ansible_version": "2.9",
     "company_name": "Company",
     "role_description": "Yet Another Ansible Role",
     "copyright_year": "2022",
     "copyright_owner": "Company",
     "issue_tracker_url": "Unknown",
-    "galaxy_tags": "[development, system]",
-    "platforms":"[{name: [EL], release: [7]}, {name: [Windows], release: [2016]}]",
+    "galaxy_tags": [["development", "system"]],
+    "platforms": [[{"name": "EL", "versions": ["7"]}], [{"name": "Windows", "versions": ["2016"]}]],
     "linux_tests": "true",
-    "windows_tests": "true"
+    "windows_tests": "true",
+    "_extensions": ["local_extensions.FoobarExtension"]
 }
