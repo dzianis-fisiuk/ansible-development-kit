@@ -4,27 +4,28 @@ dependency:
   options:
     role-file: requirements.yml
 driver:
-  name: docker
+  name: podman
 lint: |
   set -e
   {{ cookiecutter.lint_name }} .
   {{ cookiecutter.provisioner_lint_name }}
   {{ cookiecutter.verifier_lint_name }}
 platforms:
-  - name: test-docker-oraclelinux7-{{ cookiecutter.role_name }}-${MOLECULE_USER:-$USER}
+  - name: test-podman-oraclelinux7-{{ cookiecutter.role_name }}-${MOLECULE_USER:-$USER}
     image: oraclelinux:7
     pre_build_image: true
     privileged: {{ cookiecutter.docker_privileged }}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
       - {{ cookiecutter.role_name }}
     command: /usr/sbin/init
-    tty: true
 provisioner:
   name: ansible
   log: true
   playbooks:
     verify: ../resources/tests/verify.yml
 scenario:
-  name: test-docker
+  name: podman
 verifier:
   name: {{ cookiecutter.verifier_name }}
