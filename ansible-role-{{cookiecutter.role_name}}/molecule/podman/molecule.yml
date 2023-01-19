@@ -12,7 +12,7 @@ lint: |
   {{ cookiecutter.verifier_lint_name }}
 platforms:
   - name: test-podman-oraclelinux7-{{ cookiecutter.role_name }}-${MOLECULE_USER:-$USER}
-    image: oraclelinux:7
+    image: docker.io/oraclelinux:7
     pre_build_image: true
     privileged: {{ cookiecutter.docker_privileged }}
     volumes:
