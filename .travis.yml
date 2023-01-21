@@ -22,6 +22,8 @@ install:
   - ansible-lint --version
 
 script:
+  - pwd
+  - ls -l .
   - cookiecutter --no-input .
   - cd ansible-role-default_role
   - yamllint . -c .yamllint
