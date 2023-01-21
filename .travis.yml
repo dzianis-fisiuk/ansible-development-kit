@@ -10,26 +10,21 @@ services:
   - docker
 
 before_install:
+  -
   - git clone https://github.com/dzianis-fisiuk/ansible-lint-rules.git ~/ansible-lint-rules
-  - cd ~/ansible-lint-rules
-  - git checkout develop
+  - git -C ~/ansible-lint-rules checkout develop
 
 install:
-  # - pip3 install --upgrade ansible==2.8.* docker
   - pip3 install --no-cache --prefer-binary ansible-core==2.14.* molecule==4.* molecule-plugins[docker]==23.*
-  # - pip3 install molecule
-  - ansible-galaxy collection install community.docker>=3.0.2  ansible.posix>=1.4.0
+  - ansible-galaxy collection install community.docker>=3.0.2  ansible.posix>=1.4.0 containers.podman>=1.7.0
   - pip3 install git+https://github.com/ansible/ansible-lint.git
   - ansible --version
   - ansible-lint --version
   - molecule --version
 
 script:
-  - cd $TRAVIS_BUILD_DIR
-  - pwd
-  - ls -l .
   - cookiecutter --no-input .
   - cd ansible-role-default_role
   - yamllint . -c .yamllint
   - ansible-lint . -c .ansible-lint
-  - molecule test
+  - molecule test --scenario-name default
