@@ -16,7 +16,7 @@ or
 
 - molecule init template --url https://github.com/lean-delivery/ansible-development-kit
 
-Enter for the role name question a value without the ansible-role- prefix, e.g. example.
+Enter for the role name question a value without the ansible-role- prefix.
 
 Make changes in the corresponding files: copyright section in LICENSE, badge section in README.md
 (you can get galaxy's role id by running: `ansible-galaxy info lean_delivery.example |grep '\bid'`), etc.
