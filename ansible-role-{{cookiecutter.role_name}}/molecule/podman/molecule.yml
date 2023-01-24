@@ -14,7 +14,6 @@ platforms:
   - name: test-podman-oraclelinux7-{{ cookiecutter.role_name }}-${MOLECULE_USER:-$USER}
     image: docker.io/oraclelinux:7
     pre_build_image: true
-    privileged: {{ cookiecutter.docker_privileged }}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     groups:
