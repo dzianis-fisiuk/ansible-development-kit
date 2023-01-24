@@ -9,7 +9,7 @@
     "provisioner_lint_name": "ansible-lint",
     "verifier_name": "ansible",
     "verifier_lint_name": "ansible-lint",
-    "min_ansible_version": "2.9",
+    "min_ansible_version": "2.14",
     "company_name": "Company",
     "role_description": "Yet Another Ansible Role",
     "copyright_year": "2022",
